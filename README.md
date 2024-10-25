@@ -37,7 +37,7 @@ The mock API includes common Facebook API endpoints, such as:
 - **`GET /page_id`**: Get mocked information about a page
 - **`POST /page_id/feed`**: Create a post to the feed
 
-Refer to the `facebook-mock-api.json` for the full list of supported endpoints and responses.
+Refer to the [openapi file](/docs/openapi/openapi.json) for the full list of supported endpoints and responses.
 
 ---
 
