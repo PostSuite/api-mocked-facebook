@@ -1,0 +1,488 @@
+{
+  "uuid": "3e9c4f77-8f3f-40d8-8aa8-dd2b616ff824",
+  "lastMigration": 33,
+  "name": "Facebook mock api",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "9b0728c3-e7ae-43b0-bfa2-e472ef3c65b5",
+      "name": "Identity",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "fd1c81a2-3fe6-429b-8ff8-c1bd2ce7df47"
+        }
+      ]
+    },
+    {
+      "uuid": "65552e46-fd6b-4f74-abe6-b8301f79d143",
+      "name": "Page Details",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "3df5f7e9-402c-4105-93c7-26caf246c2b3"
+        },
+        {
+          "type": "route",
+          "uuid": "8b22e3d7-a592-4f7d-83a3-48289b4930db"
+        }
+      ]
+    },
+    {
+      "uuid": "92574ddf-97a3-4342-8a37-5d6da99c8aa8",
+      "name": "Page Settings",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "9fbcfa94-f683-4770-8bd6-969ab700b0d7"
+        }
+      ]
+    },
+    {
+      "uuid": "c62e7071-23d2-4102-b134-42ef8e9c4f6a",
+      "name": "Post",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "0cf56d91-f395-42b2-a176-3bf56fa467b0"
+        },
+        {
+          "type": "route",
+          "uuid": "ea89c93d-f22c-4604-82ed-a4bc332a9e14"
+        },
+        {
+          "type": "route",
+          "uuid": "98a8a64c-aa51-4f8e-9ee3-e3442a297bd7"
+        },
+        {
+          "type": "route",
+          "uuid": "496e6d34-fe5c-45e7-82d3-bb2cc9498e19"
+        }
+      ]
+    },
+    {
+      "uuid": "ecb5241a-96af-4fc8-bbe0-833069d597cf",
+      "name": "oAuth",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "415453f1-30e2-491b-8290-778c9f7f69f5"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "fd1c81a2-3fe6-429b-8ff8-c1bd2ce7df47",
+      "type": "http",
+      "documentation": "Fetch information about the user requesting",
+      "method": "get",
+      "endpoint": ":user_id/accounts",
+      "responses": [
+        {
+          "uuid": "21544b14-9c94-4152-8ac8-26aa13860eb2",
+          "body": "{\r\n  \"data\": [\r\n    {\r\n      \"access_token\": \"{facebook-for-developers-page-access-token}\",\r\n      \"category\": \"Internet Company\",\r\n      \"category_list\": [\r\n        {\r\n          \"id\": \"2256\",\r\n          \"name\": \"Internet Company\"\r\n        }\r\n      ],\r\n      \"name\": \"Facebook for Developers\",\r\n      \"id\": \"{facebook-for-developers-page-id}\",\r\n      \"tasks\": [\r\n        \"ANALYZE\",\r\n        \"ADVERTISE\",\r\n        \"MODERATE\",\r\n        \"CREATE_CONTENT\"\r\n      ]\r\n    }\r\n  ]\r\n}",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "Details Response",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3df5f7e9-402c-4105-93c7-26caf246c2b3",
+      "type": "http",
+      "documentation": "Fetch information about the user requesting",
+      "method": "get",
+      "endpoint": "page_id",
+      "responses": [
+        {
+          "uuid": "939e627b-4959-47e8-a6f0-e688f58b906d",
+          "body": "{\r\n  \"about\": \"This is a sample page for a local business that offers various products and services.\",\r\n  \"attire\": \"Casual\",\r\n  \"bio\": \"A family-owned business offering top-quality products and a welcoming environment.\",\r\n  \"location\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"Sample City\",\r\n    \"state\": \"CA\",\r\n    \"zip\": \"90210\",\r\n    \"country\": \"US\",\r\n    \"latitude\": 34.052235,\r\n    \"longitude\": -118.243683\r\n  },\r\n  \"parking\": {\r\n    \"lot\": \"1\",\r\n    \"street\": \"0\",\r\n    \"valet\": \"0\"\r\n  },\r\n  \"hours\": {\r\n    \"mon_1_open\": \"09:00\",\r\n    \"mon_1_close\": \"18:00\",\r\n    \"tue_1_open\": \"09:00\",\r\n    \"tue_1_close\": \"18:00\",\r\n    \"wed_1_open\": \"09:00\",\r\n    \"wed_1_close\": \"18:00\",\r\n    \"thu_1_open\": \"09:00\",\r\n    \"thu_1_close\": \"18:00\",\r\n    \"fri_1_open\": \"09:00\",\r\n    \"fri_1_close\": \"18:00\",\r\n    \"sat_1_open\": \"10:00\",\r\n    \"sat_1_close\": \"17:00\",\r\n    \"sun_1_open\": \"Closed\",\r\n    \"sun_1_close\": \"Closed\"\r\n  },\r\n  \"emails\": [\r\n    \"contact@samplebusiness.com\",\r\n    \"support@samplebusiness.com\"\r\n  ],\r\n  \"website\": \"https://www.samplebusiness.com\",\r\n  \"id\": \"page_id\"\r\n}\r\n",
+          "latency": 200,
+          "statusCode": 200,
+          "label": "Details Response",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8b22e3d7-a592-4f7d-83a3-48289b4930db",
+      "type": "http",
+      "documentation": "Update information about the page",
+      "method": "post",
+      "endpoint": "page_id",
+      "responses": [
+        {
+          "uuid": "b4570f89-542e-4c21-8e98-37441d526299",
+          "body": "{\n  \"success\": \"true\"\n}",
+          "latency": 200,
+          "statusCode": 200,
+          "label": "Updated details",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "about",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9fbcfa94-f683-4770-8bd6-969ab700b0d7",
+      "type": "http",
+      "documentation": "Get the page's settings",
+      "method": "get",
+      "endpoint": ":page_id/settings",
+      "responses": [
+        {
+          "uuid": "64be61e8-63a3-4b11-bd68-97c032d64e1d",
+          "body": "{\r\n  \"data\": [\r\n    {\r\n      \"setting\": \"MESSAGING\",\r\n      \"value\": true\r\n    },\r\n    {\r\n      \"setting\": \"APPOINTMENT_BOOKING\",\r\n      \"value\": false\r\n    },\r\n    {\r\n      \"setting\": \"EVENTS\",\r\n      \"value\": true\r\n    },\r\n    {\r\n      \"setting\": \"REVIEWS\",\r\n      \"value\": true\r\n    },\r\n    {\r\n      \"setting\": \"SHOW_EMAIL\",\r\n      \"value\": false\r\n    },\r\n    {\r\n      \"setting\": \"SHOW_PHONE\",\r\n      \"value\": true\r\n    },\r\n    {\r\n      \"setting\": \"SHOW_WEBSITE\",\r\n      \"value\": true\r\n    }\r\n  ],\r\n  \"paging\": {\r\n    \"cursors\": {\r\n      \"before\": \"some_cursor_value\",\r\n      \"after\": \"another_cursor_value\"\r\n    }\r\n  }\r\n}\r\n",
+          "latency": 300,
+          "statusCode": 200,
+          "label": "Details Response",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "98a8a64c-aa51-4f8e-9ee3-e3442a297bd7",
+      "type": "http",
+      "documentation": "Create a new post",
+      "method": "post",
+      "endpoint": ":page_id/feed",
+      "responses": [
+        {
+          "uuid": "87a3644d-8a74-4044-a6b2-0b70b759d52e",
+          "body": "{\n  \"id\": \"post_id\"\n}",
+          "latency": 600,
+          "statusCode": 200,
+          "label": "{   \"message\": \"Exciting news! We are launching a new product next week. Stay tuned for updates!\",   \"link\": \"https://www.samplebusiness.com/new-product\",   \"picture\": \"https://www.samplebusiness.com/images/new-product.jpg\",   \"name\": \"New Product Launch\",   \"caption\": \"Check out our latest addition!\",   \"description\": \"Discover the amazing features of our newest product, designed to make your life easier.\",   \"published\": true }",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ea89c93d-f22c-4604-82ed-a4bc332a9e14",
+      "type": "http",
+      "documentation": "Get a list of posts on the page",
+      "method": "get",
+      "endpoint": ":page_id/feed",
+      "responses": [
+        {
+          "uuid": "c37ff268-484a-4c09-80fb-f606f176ce70",
+          "body": "{\r\n  \"data\": [\r\n    {\r\n      \"id\": \"page_id_post_id1\",\r\n      \"message\": \"Exciting news! We are launching a new product next week. Stay tuned for updates!\",\r\n      \"created_time\": \"2024-10-15T12:34:56+0000\"\r\n    },\r\n    {\r\n      \"id\": \"page_id_post_id2\",\r\n      \"message\": \"Check out our latest blog post on sustainable practices in business!\",\r\n      \"created_time\": \"2024-10-10T09:00:00+0000\",\r\n      \"link\": \"https://www.samplebusiness.com/blog/sustainable-practices\",\r\n      \"picture\": \"https://www.samplebusiness.com/images/blog-thumbnail.jpg\"\r\n    }\r\n  ],\r\n  \"paging\": {\r\n    \"previous\": \"https://graph.facebook.com/v21.0/page_id/feed?access_token=ACCESS_TOKEN&limit=25&since=2024-10-15T12%3A34%3A56Z\",\r\n    \"next\": \"https://graph.facebook.com/v21.0/page_id/feed?access_token=ACCESS_TOKEN&limit=25&until=2024-10-10T09%3A00%3A00Z\"\r\n  }\r\n}\r\n",
+          "latency": 800,
+          "statusCode": 200,
+          "label": "Get a list of posts on the page",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0cf56d91-f395-42b2-a176-3bf56fa467b0",
+      "type": "http",
+      "documentation": "Update a post",
+      "method": "post",
+      "endpoint": "post_id",
+      "responses": [
+        {
+          "uuid": "c3135228-a355-4c35-892e-fd415aabe0ad",
+          "body": "{\r\n  \"success\": true\r\n}",
+          "latency": 900,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "496e6d34-fe5c-45e7-82d3-bb2cc9498e19",
+      "type": "http",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "post_id",
+      "responses": [
+        {
+          "uuid": "a0c1c54a-f806-4312-b915-1820786b436e",
+          "body": "{\r\n  \"success\": true\r\n}",
+          "latency": 1,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "415453f1-30e2-491b-8290-778c9f7f69f5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "oauth",
+      "responses": [
+        {
+          "uuid": "297c4f17-7ee0-4bae-8c3e-6fa33140aecd",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "state",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": [
+            {
+              "uuid": "86576dba-774c-4cbd-b55b-bfd08e3a3d87",
+              "latency": 0
+            }
+          ]
+        },
+        {
+          "uuid": "0d44a409-56c4-4ca5-ab72-f36bd9a8f4fa",
+          "body": "{\n  \"error\": \"State query param not provided\"\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "folder",
+      "uuid": "9b0728c3-e7ae-43b0-bfa2-e472ef3c65b5"
+    },
+    {
+      "type": "folder",
+      "uuid": "92574ddf-97a3-4342-8a37-5d6da99c8aa8"
+    },
+    {
+      "type": "folder",
+      "uuid": "65552e46-fd6b-4f74-abe6-b8301f79d143"
+    },
+    {
+      "type": "folder",
+      "uuid": "c62e7071-23d2-4102-b134-42ef8e9c4f6a"
+    },
+    {
+      "type": "folder",
+      "uuid": "ecb5241a-96af-4fc8-bbe0-833069d597cf"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "587966ec-21d1-4589-bbb4-e4ebc5efb41c",
+      "id": "2q0d",
+      "name": "New data",
+      "documentation": "",
+      "value": "[\n]"
+    }
+  ],
+  "callbacks": [
+    {
+      "uuid": "86576dba-774c-4cbd-b55b-bfd08e3a3d87",
+      "id": "n7x2",
+      "uri": "https://clementine.postsuite.xyz/connections/callback?code={{faker 'number.int' min=10 max=100000000}}&state={{queryParam 'state'}}",
+      "name": "Callback",
+      "documentation": "oAuth callback ",
+      "method": "get",
+      "headers": [],
+      "bodyType": "INLINE",
+      "body": "",
+      "databucketID": "",
+      "filePath": "",
+      "sendFileAsBody": true
+    }
+  ]
+}
