@@ -1,0 +1,265 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mock Facebook API",
+    "description": "API for simulating Facebook-like interactions in PostSuite.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://fb.mock.postsuite.xyz",
+      "description": "Mock Facebook API server"
+    }
+  ],
+  "paths": {
+    "/{page_id}/feed": {
+      "post": {
+        "summary": "Create a new post on the page's feed",
+        "description": "Add a post to the specified page's feed, including a message, link, image, and other details.",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the page to post to."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": { "type": "string", "example": "Exciting news! We are launching a new product next week. Stay tuned for updates!" },
+                  "link": { "type": "string", "example": "https://www.samplebusiness.com/new-product" },
+                  "picture": { "type": "string", "example": "https://www.samplebusiness.com/images/new-product.jpg" },
+                  "name": { "type": "string", "example": "New Product Launch" },
+                  "caption": { "type": "string", "example": "Check out our latest addition!" },
+                  "description": { "type": "string", "example": "Discover the amazing features of our newest product, designed to make your life easier." },
+                  "published": { "type": "boolean", "example": true }
+                },
+                "required": ["message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post created successfully",
+            "content": { "application/json": { "example": { "status": "success", "post_id": "12345" } } }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieve posts from the page's feed",
+        "description": "Fetch all posts from the specified page's feed.",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the page to retrieve posts from."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of posts retrieved",
+            "content": {
+              "application/json": {
+                "example": [
+                  { "post_id": "12345", "message": "First post on this page!" },
+                  { "post_id": "12346", "message": "Exciting updates coming soon!" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{post_id}": {
+      "delete": {
+        "summary": "Delete a post by ID",
+        "description": "Remove a post from the system by providing its unique post ID.",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the post to delete."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post deleted successfully",
+            "content": { "application/json": { "example": { "status": "deleted", "post_id": "12345" } } }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update a post by ID",
+        "description": "Edit an existing post by providing its unique post ID and new message content.",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the post to update."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": { "type": "string", "example": "new post message" }
+                },
+                "required": ["message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post updated successfully",
+            "content": { "application/json": { "example": { "status": "updated", "post_id": "12345" } } }
+          }
+        }
+      }
+    },
+    "/{page_id}": {
+      "post": {
+        "summary": "Update page information",
+        "description": "Modify details about a page, such as the 'about' section.",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the page to update."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "about": { "type": "string", "example": "New about string" }
+                },
+                "required": ["about"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Page updated successfully",
+            "content": { "application/json": { "example": { "status": "updated", "page_id": "page123" } } }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieve page details",
+        "description": "Get basic information about the page.",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the page to retrieve."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Page details retrieved",
+            "content": {
+              "application/json": {
+                "example": { "page_id": "page123", "about": "Information about this page." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{page_id}/settings": {
+      "get": {
+        "summary": "Retrieve page settings",
+        "description": "Fetch settings configuration for the specified page.",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the page to retrieve settings for."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Page settings retrieved",
+            "content": { "application/json": { "example": { "settings": { "notifications": true, "privacy": "public" } } } }
+          }
+        }
+      }
+    },
+    "/{user_id}/accounts": {
+      "get": {
+        "summary": "Retrieve user accounts",
+        "description": "Get a list of pages or accounts that belong to the specified user.",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "The ID of the user to retrieve accounts for."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User accounts retrieved",
+            "content": {
+              "application/json": {
+                "example": [
+                  { "account_id": "page123", "name": "Sample Page" },
+                  { "account_id": "page456", "name": "Another Page" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/oauth": {
+      "get": {
+        "summary": "Initiate OAuth authentication",
+        "description": "Start the OAuth authentication process for the user.",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Unique identifier for the OAuth state."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OAuth initiated",
+            "content": { "application/json": { "example": { "status": "oauth_started", "redirect_uri": "https://fb.mock.postsuite.xyz/oauth/callback" } } }
+          }
+        }
+      }
+    }
+  }
+}

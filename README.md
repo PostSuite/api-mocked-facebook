@@ -33,9 +33,9 @@ A **Mockoon** setup for the Facebook API, allowing us to run system tests in sta
 
 The mock API includes common Facebook API endpoints, such as:
 
-- **`GET /v1/me`**: Fetches mocked user profile information.
-- **`POST /v1/publish`**: Mocks a post creation on the user’s timeline.
-- **`GET /v1/friends`**: Returns a list of mocked friends data.
+- **`GET /:userid/accounts`**: Fetches mocked list of accounts for a user id
+- **`GET /page_id`**: Get mocked information about a page
+- **`POST /page_id/feed`**: Create a post to the feed
 
 Refer to the `facebook-mock-api.json` for the full list of supported endpoints and responses.
 
