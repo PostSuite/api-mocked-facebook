@@ -84,7 +84,7 @@
       "responses": [
         {
           "uuid": "21544b14-9c94-4152-8ac8-26aa13860eb2",
-          "body": "{\r\n  \"data\": [\r\n    {\r\n      \"access_token\": \"{facebook-for-developers-page-access-token}\",\r\n      \"category\": \"Internet Company\",\r\n      \"category_list\": [\r\n        {\r\n          \"id\": \"2256\",\r\n          \"name\": \"Internet Company\"\r\n        }\r\n      ],\r\n      \"name\": \"Facebook for Developers\",\r\n      \"id\": \"{facebook-for-developers-page-id}\",\r\n      \"tasks\": [\r\n        \"ANALYZE\",\r\n        \"ADVERTISE\",\r\n        \"MODERATE\",\r\n        \"CREATE_CONTENT\"\r\n      ]\r\n    }\r\n  ]\r\n}",
+          "body": "{\r\n  \"data\": [\r\n    {\r\n      \"access_token\": \"token\",\r\n      \"category\": \"Internet Company\",\r\n      \"category_list\": [\r\n        {\r\n          \"id\": \"2256\",\r\n          \"name\": \"Internet Company\"\r\n        }\r\n      ],\r\n      \"name\": \"Acme Inc\",\r\n      \"id\": \"page_id\",\r\n      \"tasks\": [\r\n        \"ANALYZE\",\r\n        \"ADVERTISE\",\r\n        \"MANAGE\",\r\n        \"MODERATE\",\r\n        \"CREATE_CONTENT\"\r\n      ]\r\n    }\r\n  ]\r\n}",
           "latency": 500,
           "statusCode": 200,
           "label": "Details Response",
@@ -393,9 +393,44 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "2d9a4d9b-31c0-4cf5-aa93-d8cf568168d5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "0b36d269-97a7-4616-bf3e-a20295865791",
+          "body": "",
+          "latency": 0,
+          "statusCode": 308,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "index.html",
+          "databucketID": "",
+          "sendFileAsBody": true,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "2d9a4d9b-31c0-4cf5-aa93-d8cf568168d5"
+    },
     {
       "type": "folder",
       "uuid": "9b0728c3-e7ae-43b0-bfa2-e472ef3c65b5"

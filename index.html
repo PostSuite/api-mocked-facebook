@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Facebook API - Swagger UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .swagger-ui {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.js"> </script>
+<script>
+    const ui = SwaggerUIBundle({
+        url: "https://raw.githubusercontent.com/PostSuite/api-mocked-facebook/refs/heads/dev/docs/openapi/openapi.json",
+        dom_id: '#swagger-ui',
+        presets: [
+            SwaggerUIBundle.presets.apis,
+        ],
+        deepLinking: true,
+        displayOperationId: false,
+        filter: false,
+        tryItOutEnabled: true,
+        defaultModelsExpandDepth: -1,
+    });
+
+    window.ui = ui;
+</script>
+</body>
+</html>
