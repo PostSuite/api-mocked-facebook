@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Provider - Authorization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #444;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Fakebook oAuth Window</h1>
+    <p>Hi John Smith,<br><br>Click to link your Fakebook account to <b>PostSuite</b>.<br><br>This will give permission to:<br>- Manage your page<br>- Post on your behalf</p>
+    <button id="redirectButton">Accept</button>
+    <footer>
+        &copy; 2024 Fakebook Inc
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const state = urlParams.get('state');
+        const token = "{{faker 'string.alphanumeric' 25}}"
+        const redirectUrl = 'https://clementine.postsuite.xyz/connections/callback';
+
+        // Set the button click event to redirect with the state parameter
+        document.getElementById('redirectButton').addEventListener('click', () => {
+            if (state) {
+                const redirectWithState = `${redirectUrl}?state=${encodeURIComponent(state)}&code=${encodeURIComponent(token)}`;
+                window.location.href = redirectWithState;
+            } else {
+                alert('State parameter is missing.');
+            }
+        });
+    });
+</script>
+</body>
+</html>

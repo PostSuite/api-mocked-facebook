@@ -345,10 +345,10 @@
           "statusCode": 200,
           "label": "",
           "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
+          "bodyType": "FILE",
+          "filePath": "oauth.html",
           "databucketID": "",
-          "sendFileAsBody": false,
+          "sendFileAsBody": true,
           "rules": [
             {
               "target": "query",
@@ -363,19 +363,14 @@
           "fallbackTo404": false,
           "default": false,
           "crudKey": "id",
-          "callbacks": [
-            {
-              "uuid": "86576dba-774c-4cbd-b55b-bfd08e3a3d87",
-              "latency": 0
-            }
-          ]
+          "callbacks": []
         },
         {
-          "uuid": "0d44a409-56c4-4ca5-ab72-f36bd9a8f4fa",
-          "body": "{\n  \"error\": \"State query param not provided\"\n}",
+          "uuid": "bdcd8528-8046-4917-b578-5d45861288fa",
+          "body": "{\n  \"error\": \"Numeric state query paramater not provided\"\n  \"example\": \"?state=1234567\"\n}",
           "latency": 0,
           "statusCode": 422,
-          "label": "",
+          "label": "State query paramater not provided",
           "headers": [],
           "bodyType": "INLINE",
           "filePath": "",
@@ -501,23 +496,8 @@
       "id": "2q0d",
       "name": "New data",
       "documentation": "",
-      "value": "[\n]"
+      "value": "[\n  {\"id\": \"75adb32f-f92b-44ff-9a29-ca28fac17e50\", \"message\": \"test\"},\n  {\"id\": \"f220d0a9-0d43-4224-a0bb-4b1553c89643\", \"message\": \"hello\"}\n]"
     }
   ],
-  "callbacks": [
-    {
-      "uuid": "86576dba-774c-4cbd-b55b-bfd08e3a3d87",
-      "id": "n7x2",
-      "uri": "https://clementine.postsuite.xyz/connections/callback?code={{faker 'number.int' min=10 max=100000000}}&state={{queryParam 'state'}}",
-      "name": "Callback",
-      "documentation": "oAuth callback ",
-      "method": "get",
-      "headers": [],
-      "bodyType": "INLINE",
-      "body": "",
-      "databucketID": "",
-      "filePath": "",
-      "sendFileAsBody": true
-    }
-  ]
+  "callbacks": []
 }
